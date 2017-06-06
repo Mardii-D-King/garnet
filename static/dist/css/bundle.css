@@ -1,0 +1,36 @@
+.NavBar {
+  float: none;
+  display: inline-block;
+  background-color: #fff;
+  border-bottom: 1px solid #bc3e3f;
+  width: 100%;
+  height: 70px;
+  margin-bottom: 10px;
+}
+.NavBar ul {
+  text-align: center;
+  margin-top: 15px;
+}
+.NavBar ul li {
+  display: inline;
+}
+.NavBar a {
+  color: #bc3e3f;
+  margin-left: 20px;
+  margin-right: 20px;
+  text-decoration: none;
+}
+.DetailsBox img {
+  height: 40px;
+  color: #bc3e3f;
+  fill: #bc3e3f;
+}
+.Footer {
+  margin: 0 auto -4em;
+}
+.Footer a {
+  color: #fff;
+  text-decoration: none;
+}
+
+/*# sourceMappingURL=bundle.css.map*/

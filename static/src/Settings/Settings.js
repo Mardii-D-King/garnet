@@ -17,6 +17,7 @@ import {
   Well,
   Button,
 } from 'react-bootstrap';
+import axios from 'axios';
 import Navbar from '../Navbar/Navbar.js';
 import Footer from '../Dashboard/Footer/Footer.js';
 
@@ -26,6 +27,23 @@ class Settings extends Component {
     this.state = {
       data: [],
     };
+  }
+
+  componentDidMount () {
+    var _this = this;
+
+    axios
+      .get ('/garnet/settings')
+      .then (function (response) {
+        var data = response.data;
+        console.log (data);
+        _this.setState ({
+          data: response.data,
+        });
+      })
+      .catch (function (error) {
+        console.log (error);
+      });
   }
 
   render () {
@@ -41,20 +59,20 @@ class Settings extends Component {
                 <ControlLabel>Log File</ControlLabel>
                 <FormControl
                   type="text"
-                  value={this.state.value}
-                  placeholder="log/garnet.log"
+                  value=""
+                  placeholder={this.state.data.log_file}
                 />
 
                 <ControlLabel>Log Level</ControlLabel>
                 <FormControl componentClass="select" placeholder="select">
-                  <option value="other">info</option>
+                  <option value="">info</option>
                 </FormControl>
 
                 <ControlLabel>agent_cache_directory</ControlLabel>
                 <FormControl
                   type="text"
-                  value={this.state.value}
-                  placeholder="cache"
+                  value=""
+                  placeholder={this.state.data.agent_cache_directory}
                 />
 
                 <ControlLabel>language</ControlLabel>
@@ -65,29 +83,29 @@ class Settings extends Component {
                 <ControlLabel>interval</ControlLabel>
                 <FormControl
                   type="text"
-                  value={this.state.value}
-                  placeholder="100"
+                  value=""
+                  placeholder={this.state.data.interval}
                 />
 
                 <ControlLabel>agent_subprocesses</ControlLabel>
                 <FormControl
                   type="text"
-                  value={this.state.value}
-                  placeholder="10"
+                  value=""
+                  placeholder={this.state.data.agent_subprocesses}
                 />
 
                 <ControlLabel>listen_address</ControlLabel>
                 <FormControl
                   type="text"
-                  value={this.state.value}
-                  placeholder="127.0.0.1"
+                  value=""
+                  placeholder={this.state.data.listen_address}
                 />
 
                 <ControlLabel>bind_port</ControlLabel>
                 <FormControl
                   type="text"
-                  value={this.state.value}
-                  placeholder="5000"
+                  value=""
+                  placeholder={this.state.data.bind_port}
                 />
               </Well>
             </Row>
